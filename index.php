@@ -1,6 +1,6 @@
 <?php
 
-    require 'header.php';
+    require_once 'header.php';
     require_once 'database.php';
     $mysql = getDB();
 
@@ -71,6 +71,5 @@
           </nav>
 
         </div><!-- /.blog-main -->
-<?php
-require footer.php
-?>
+
+<?php require 'footer.php' ?>
