@@ -34,3 +34,27 @@
 :root #content > #center > .dose > .dosesingle,
 :root .carbonad
 { display: none !important; }</style></head>
+
+<body>
+
+  <div class="blog-masthead">
+    <div class="container">
+      <nav class="blog-nav">
+        <a class="blog-nav-item active" href="http://getbootstrap.com/examples/blog/#">Introduction and Start Here</a>
+        <a class="blog-nav-item" href="http://getbootstrap.com/examples/blog/#">My Routine</a>
+        <a class="blog-nav-item" href="http://getbootstrap.com/examples/blog/#">Dos and Don'ts</a>
+        <a class="blog-nav-item" href="http://getbootstrap.com/examples/blog/#">Auntie's Mission</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="blog-header">
+      <h1 class="blog-title">Skincare Auntie</h1>
+      <p class="lead blog-description">The tentative skincare blog for my dear friend Cristy Yeung</p>
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm-8 blog-main">
