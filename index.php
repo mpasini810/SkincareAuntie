@@ -4,7 +4,7 @@
     require_once 'database.php';
     $mysql = getDB();
 
-    if ($_GET["page"] == null){
+    if (!array_key_exists("page", $_GET)){
       $_GET["page"] = 1;
     }
 
@@ -17,6 +17,7 @@
         FROM Posts
         LEFT JOIN Comments ON Comments.PostId = Posts.id
         GROUP BY Posts.id
+        ORDER BY Posts.CreatedAt DESC
         LIMIT 5 OFFSET {$OFFSET}
         ");
 
@@ -28,8 +29,6 @@
           <div class="blog-post">
             <h2 class="blog-post-title"><?=$aRow['Title']?></h2>
             <h4><?=$aRow['CommentCount']?> comments</h4>
-            <p class="blog-post-meta">January 1, 2014 by <a href="http://getbootstrap.com/examples/blog/#">Mark</a></p>
-
             <p><?=$aRow['Body']?></p>
 
           </div><!-- /.blog-post -->

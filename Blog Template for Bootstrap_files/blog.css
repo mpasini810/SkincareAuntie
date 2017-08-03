@@ -3,8 +3,8 @@
  */
 
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  color: #555;
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(59, 8, 76);
 }
 
 h1, .h1,
@@ -14,9 +14,9 @@ h4, .h4,
 h5, .h5,
 h6, .h6 {
   margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
-  color: #333;
+  color: rgb(210, 205, 216);
 }
 
 
@@ -36,9 +36,11 @@ h6, .h6 {
  */
 
 .blog-masthead {
-  background-color: #428bca;
+  background-color: rgb(210, 205, 216);;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 /* Nav links */
@@ -47,7 +49,7 @@ h6, .h6 {
   display: inline-block;
   padding: 10px;
   font-weight: 500;
-  color: #cdddeb;
+  color: #fff;
 }
 .blog-nav-item:hover,
 .blog-nav-item:focus {
@@ -158,7 +160,7 @@ h6, .h6 {
   padding: 40px 0;
   color: #999;
   text-align: center;
-  background-color: #f9f9f9;
+  background-color: rgb(49, 49, 49);
   border-top: 1px solid #e5e5e5;
 }
 .blog-footer p:last-child {

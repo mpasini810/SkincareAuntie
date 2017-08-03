@@ -18,6 +18,14 @@ function createUser($email, $firstName, $lastName, $password, $admin){
 }
 
 
+function createPost($title, $body) {
+  $mysql = getDB();
+  $pstmt = $mysql->prepare("insert into Posts (title, body) values (?, ?)");
+  $pstmt->bind_param("ss", $title, $body);
+  $pstmt->execute();
+}
+
+
 function checkPassword($email, $passwordToCheck){
     $mysql = getDB();
     $result = $mysql->query("select password from users where email = '$email'");

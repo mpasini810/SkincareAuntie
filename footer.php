@@ -5,16 +5,42 @@
   </div>
   <div class="sidebar-module">
     <h4>Archives</h4>
-    <ol class="list-unstyled">
-      <li><a href="http://getbootstrap.com/examples/blog/#">June 2017</a></li>
-    </ol>
+      
+      
+      
+    <?php 
+      require_once 'database.php';
+    $mysql = getDB();
+      
+    $result = $mysql->query("
+        Select MONTHNAME(CreatedAt) as month, YEAR(CreatedAt) as year, COUNT(*) as count from Posts
+        GROUP BY YEAR(CreatedAt), MONTH(CreatedAt)
+        ORDER BY YEAR(CreatedAt) desc, MONTH(CreatedAt) desc
+        ");
+
+    for($i = 0; $i < $result->num_rows; $i++){
+        $result->data_seek($i);
+        $aRow = $result->fetch_assoc();
+          ?>
+
+        <ol class="list-unstyled">
+            <li><a href="http://getbootstrap.com/examples/blog/#"><?echo $aRow['month'] . " " . $aRow['year'] . " (" . $aRow['count'] . ")"?></a></li>
+        </ol>
+          <?php
+              }
+          ?>
+
+      
+      
+    
   </div>
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
     <ol class="list-unstyled">
-      <li><a href="http://getbootstrap.com/examples/blog/#">GitHub</a></li>
-      <li><a href="http://getbootstrap.com/examples/blog/#">Twitter</a></li>
-      <li><a href="http://getbootstrap.com/examples/blog/#">Facebook</a></li>
+      <li><a href="linksoon">Twitter</a></li>
+      <li><a href="linksoon">Facebook</a></li>
+        <li><a href="linksoon">Instagram</a></li>
+
     </ol>
   </div>
 </div><!-- /.blog-sidebar -->

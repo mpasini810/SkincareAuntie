@@ -37,11 +37,12 @@
 
 	if(checkPassword($email, $passwordToCheck)){
 	    $_SESSION['email'] = $email;
+			$_SESSION['loggedIn'] = true;
 	    $destination = "";
 	    if(isset($_POST['destination'])){
 	        $destination = $_POST['destination'];
         }else{
-	        $destination = "index.php";
+	        $destination = "create.php";
         }
         /*
          * Could also be written $destination = (isset($_GET['destination'])) ? $_GET['destination'] : "index.php";
