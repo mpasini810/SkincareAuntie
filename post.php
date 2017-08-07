@@ -11,7 +11,7 @@
     $post_number = intval($_GET["post"]);
 
     $post_result = $mysql->query("
-        SELECT Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views
+        SELECT Posts.Title, Posts.Body, CAST(Posts.CreatedAt AS DATE) AS CreatedAt , Posts.Views
         FROM Posts
         WHERE Posts.id = {$post_number}");
 
@@ -27,7 +27,7 @@
 
           <div class="blog-post">
             <h2 class="blog-post-title"><?=$post['Title']?></h2>
-            <p class="blog-post-meta">January 1, 2014 by <a href="http://getbootstrap.com/examples/blog/#">Mark</a></p>
+            <p class="blog-post-meta"><?=$post['CreatedAt']?></p>
             <p><?=$post['Body']?></p>
             <hr />
             <h3>Comments</h3>

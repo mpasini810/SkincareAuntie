@@ -12,7 +12,7 @@
     $OFFSET = $page_number * 5 - 5;
 
     $result = $mysql->query("
-        SELECT Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views,
+        SELECT Posts.id, Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views,
           count(Comments.id) AS CommentCount
         FROM Posts
         LEFT JOIN Comments ON Comments.PostId = Posts.id
@@ -23,19 +23,15 @@
 
     for($i = 0; $i < $result->num_rows; $i++){
         $result->data_seek($i);
-        $aRow = $result->fetch_assoc();
-          ?>
-
+        $aRow = $result->fetch_assoc(); ?>
           <div class="blog-post">
-            <h2 class="blog-post-title"><?=$aRow['Title']?></h2>
+						<a href="post.php?id=<?=$aRow['id']?>">
+            	<h2 class="blog-post-title"><?=$aRow['Title']?></h2>
+						</a>
             <h4><?=$aRow['CommentCount']?> comments</h4>
             <p><?=$aRow['Body']?></p>
-
           </div><!-- /.blog-post -->
-          <?php
-              }
-          ?>
-
+        	<?php } ?>
           <nav>
             <ul class="pager">
               <?php

@@ -1,12 +1,9 @@
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
   <div class="sidebar-module sidebar-module-inset">
-    <h4>About</h4>
-    <p>By Cristy Yeung. Feel free to share this around but don’t plagiarize or istg I’ll come after you and scrub your face with St. Ives Apricot Scrub and put lemon juice and essential oils on it for all eternity. </p>
+   <a href="contact.php"><h3 class="row text-center" style="color:white;">Contact</h3></a> 
   </div>
   <div class="sidebar-module">
     <h4>Archives</h4>
-      
-      
       
     <?php 
       require_once 'database.php';
@@ -29,10 +26,6 @@
           <?php
               }
           ?>
-
-      
-      
-    
   </div>
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
@@ -44,17 +37,10 @@
     </ol>
   </div>
 </div><!-- /.blog-sidebar -->
-
 </div><!-- /.row -->
-
 </div><!-- /.container -->
-
 <footer class="blog-footer">
-
-<a href="index.php?page=2">Next page</a>
-
 </footer>
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

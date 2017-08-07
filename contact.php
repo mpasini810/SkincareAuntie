@@ -82,5 +82,7 @@ if (!$errUserName && !$errEmail && !$errMessage && !$errHuman) {
 	</div>
 </form> 
 
+</div>
+
          
 <?php require 'footer.php' ?>
