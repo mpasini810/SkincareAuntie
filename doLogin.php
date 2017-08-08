@@ -1,5 +1,4 @@
 <?php
-	//var_dump($_POST);
 	error_reporting(E_ERROR | E_WARNING | E_PARSE); // prevents error notices
 	session_start();  // starts the session so variables can be stored in the session superglobal
 
@@ -10,12 +9,12 @@
 	$hasError=false;
 	$errMsg="";
 
-	if(empty($email)){
+	if(empty($email)) {
 		$hasError=true;
 		$errMsg=$errMsg . "Please provide an email address.<br />";
 	}
 
-	if(empty($passwordToCheck)){
+	if(empty($passwordToCheck)) {
 		$hasError=true;
 		$errMsg=$errMsg . "Please provide a password.<br />";
 	}
@@ -33,8 +32,6 @@
 	}
 
 		// The session is our vehicle for sending information between pages
-	checkPassword($email, $passwordToCheck);
-
 	if(checkPassword($email, $passwordToCheck)){
 	    $_SESSION['email'] = $email;
 			$_SESSION['loggedIn'] = true;
@@ -44,16 +41,9 @@
         }else{
 	        $destination = "create.php";
         }
-        /*
-         * Could also be written $destination = (isset($_GET['destination'])) ? $_GET['destination'] : "index.php";
-         */
 		header("Location: ".$destination);
 	} else {
 		header("Location: login.php");
 	}
-
-
-
-
 	exit();
 ?>

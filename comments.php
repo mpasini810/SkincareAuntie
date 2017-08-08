@@ -6,26 +6,24 @@
   <body>
     <h1>hello world</h1>
   </body>
-  <?php
-      require_once 'database.php';
-      $mysql = getDB();
-      $result = $mysql->query("SELECT Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views,
-        Comments.UserName, Comments.Body as CommentsBody, Comments.CreatedAt
-         FROM Posts
-         left join Comments on Comments.PostId = Posts.id;" );
-  ?>
+<?php
+require_once 'database.php';
+$mysql = getDB();
+$result = $mysql->query("
+	SELECT Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views,
+	Comments.UserName, Comments.Body as CommentsBody, Comments.CreatedAt
+	FROM Posts
+	left join Comments on Comments.PostId = Posts.id;
+");
 
-      <?php
-          for($i = 0; $i < $result->num_rows; $i++){
-              $result->data_seek($i);
-              $aRow = $result->fetch_assoc();
-      ?>
-                  <h1><?=$aRow['Title']?></h1>
-                  <p><?=$aRow['Body']?></p>
-                  <p><?=$aRow['CreatedAt']?></p>
-                  <p>Views: <?=$aRow['Views']?></p>
-                  <p>Comments:<?=$aRow['CommentsBody']?> </p>
-      <?php
-          }
-      ?>
+for ($i = 0; $i < $result->num_rows; $i++){
+	$result->data_seek($i);
+	$aRow = $result->fetch_assoc();
+?>
+	<h1><?php echo $aRow['Title'] ?></h1>
+	<p><?php echo $aRow['Body'] ?></p>
+	<p><?php echo $aRow['CreatedAt'] ?></p>
+	<p>Views: <?php echo $aRow['Views'] ?></p>
+	<p>Comments:<?php echo $aRow['CommentsBody'] ?> </p>
+<?php } ?>
 </html>

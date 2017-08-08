@@ -1,39 +1,36 @@
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
   <div class="sidebar-module sidebar-module-inset">
-   <a href="contact.php"><h3 class="row text-center" style="color:white;">Contact</h3></a> 
+    <a href="contact.php"><h3 class="row text-center" style="color:white;">Contact</h3></a> 
   </div>
   <div class="sidebar-module">
     <h4>Archives</h4>
-      
-    <?php 
-      require_once 'database.php';
-    $mysql = getDB();
-      
-    $result = $mysql->query("
-        Select MONTHNAME(CreatedAt) as month, YEAR(CreatedAt) as year, COUNT(*) as count from Posts
-        GROUP BY YEAR(CreatedAt), MONTH(CreatedAt)
-        ORDER BY YEAR(CreatedAt) desc, MONTH(CreatedAt) desc
-        ");
+<?php 
+require_once 'database.php';
+$mysql = getDB();
 
-    for($i = 0; $i < $result->num_rows; $i++){
-        $result->data_seek($i);
-        $aRow = $result->fetch_assoc();
-          ?>
+$result = $mysql->query("
+		Select id, MONTHNAME(CreatedAt) as month, YEAR(CreatedAt) as year, COUNT(*) as count from Posts
+		GROUP BY YEAR(CreatedAt), MONTH(CreatedAt)
+		ORDER BY YEAR(CreatedAt) desc, MONTH(CreatedAt) desc
+		");
 
-        <ol class="list-unstyled">
-            <li><a href="http://getbootstrap.com/examples/blog/#"><?echo $aRow['month'] . " " . $aRow['year'] . " (" . $aRow['count'] . ")"?></a></li>
-        </ol>
-          <?php
-              }
-          ?>
+for($i = 0; $i < $result->num_rows; $i++){
+		$result->data_seek($i);
+		$aRow = $result->fetch_assoc();
+?>
+		<ol class="list-unstyled">
+			<li>
+				<a href="post?post=<?=$aRow['id']?>"><?echo $aRow['month'] . " " . $aRow['year'] . " (" . $aRow['count'] . ")"?></a>
+			</li>
+		</ol>
+<?php } ?>
   </div>
   <div class="sidebar-module">
     <h4>Elsewhere</h4>
     <ol class="list-unstyled">
       <li><a href="linksoon">Twitter</a></li>
       <li><a href="linksoon">Facebook</a></li>
-        <li><a href="linksoon">Instagram</a></li>
-
+      <li><a href="linksoon">Instagram</a></li>
     </ol>
   </div>
 </div><!-- /.blog-sidebar -->

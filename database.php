@@ -8,7 +8,7 @@ function getDB() {
     return  $mysql;
 }
 
-
+// for logging into site 
 function createUser($email, $firstName, $lastName, $password, $admin){
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $mysql = getDB();
@@ -35,7 +35,7 @@ function createComment($username, $email, $body, $postId) {
 function checkPassword($email, $passwordToCheck){
     $mysql = getDB();
     $result = $mysql->query("select password from users where email = '$email'");
-    if($result->num_rows < 1){
+    if($result->num_rows < 1) {
         return false;
     }
 
@@ -43,5 +43,4 @@ function checkPassword($email, $passwordToCheck){
     $aRow = $result->fetch_assoc();
     return ($aRow['password'] == hash("sha256", $passwordToCheck));
 }
-
 ?>
