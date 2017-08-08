@@ -25,6 +25,12 @@ function createPost($title, $body) {
   $pstmt->execute();
 }
 
+function createComment($username, $email, $body, $postId) {
+  $mysql = getDB();
+  $pstmt = $mysql->prepare("insert into Comments (UserName, Email, Body, PostId) values (?, ?, ?, ?)");
+  $pstmt->bind_param("ssss", $username, $email, $body, $postId);
+  $pstmt->execute();
+}
 
 function checkPassword($email, $passwordToCheck){
     $mysql = getDB();

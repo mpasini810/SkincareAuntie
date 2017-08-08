@@ -44,7 +44,7 @@
         <a class="blog-nav-item <?php if ($_GET["post"] == 1) echo "active"?>"  href="post.php?post=1"><p>Introduction</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 2) echo "active"?>" href="post.php?post=2"><p>Start Here & Basic Information</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 3) echo "active"?>" href="post.php?post=3"><p>Dos and Don'ts</p></a>
-        <a class="blog-nav-item <?php if ($_GET["post"] == 4) echo "active"?>" href="post.php?post=4"><p>Auntie's Mission</p></a>
+        <a class="blog-nav-item <?php if ($_GET["post"] == 4) echo "active"?>" href="post.php?post=4"><p>My Routine</p></a>
       </nav>
     </div>
   </div>
