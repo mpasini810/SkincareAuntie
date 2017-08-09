@@ -20,7 +20,7 @@ for($i = 0; $i < $result->num_rows; $i++){
 ?>
 		<ol class="list-unstyled">
 			<li>
-				<a href="post?post=<?=$aRow['id']?>"><?echo $aRow['month'] . " " . $aRow['year'] . " (" . $aRow['count'] . ")"?></a>
+				<a href="post.php?post=<?=$aRow['id']?>"><?echo $aRow['month'] . " " . $aRow['year'] . " (" . $aRow['count'] . ")"?></a>
 			</li>
 		</ol>
 <?php } ?>

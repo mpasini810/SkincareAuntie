@@ -13,7 +13,7 @@ $page_number = intval($_GET["page"]);
 $OFFSET = $page_number * 5 - 5;
 
 $result = $mysql->query("
-	SELECT Posts.id, Posts.Title, Posts.Body, Posts.CreatedAt, Posts.Views,
+	SELECT Posts.id, Posts.Title, Posts.Body, Posts.CreatedAt
 		count(Comments.id) AS CommentCount
 	FROM Posts
 	LEFT JOIN Comments ON Comments.PostId = Posts.id

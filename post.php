@@ -41,7 +41,7 @@ if (isset($_POST["submit"])) {
 }
 
 $post_result = $mysql->query("
-	SELECT Posts.Title, Posts.Body, CAST(Posts.CreatedAt AS DATE) AS CreatedAt , Posts.Views
+	SELECT Posts.Title, Posts.Body, CAST(Posts.CreatedAt AS DATE) AS CreatedAt
 	FROM Posts
 	WHERE Posts.id = {$post_number}
 ");
