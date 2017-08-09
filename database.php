@@ -1,7 +1,17 @@
 <?php
 
 function getDB() {
-    $mysql = new mysqli("localhost", "root", "root", "skincareauntie", 8888);
+		if (getenv("CLEARDB_DATABASE_URL") != null) {
+			$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+			$server = $url["host"];
+			$username = $url["user"];
+			$password = $url["pass"];
+			$db = substr($url["path"], 1);
+			$mysql = new mysqli($server, $username, $password, $db);
+		} else {
+			$mysql = new mysqli("localhost", "root", "root", "skincareauntie", 8888);
+		}
+	
     if ($mysql->connect_errno) {
         echo ("Failed to connect to MySQL: ".$mysql->error);
     }
@@ -16,7 +26,6 @@ function createUser($email, $firstName, $lastName, $password, $admin){
     $pstmt->bind_param("sssss", $email, $firstName, $lastName, $hashedPassword, $admin);
     $pstmt->execute();
 }
-
 
 function createPost($title, $body) {
   $mysql = getDB();
