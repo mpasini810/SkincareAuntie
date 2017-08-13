@@ -35,7 +35,7 @@
   <div class="blog-masthead">
     <div class="container">
       <nav class="blog-nav">
-        <a class="blog-nav-item" href="http://localhost:8888/SkincareAuntie/index.php"><p>Home</p></a>
+        <a class="blog-nav-item" href="index.php"><p>Home</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 1) echo "active"?>"  href="post.php?post=1"><p>Introduction</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 2) echo "active"?>" href="post.php?post=2"><p>Start Here & Basic Information</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 3) echo "active"?>" href="post.php?post=3"><p>Dos and Don'ts</p></a>
@@ -45,7 +45,7 @@
   </div>
   <div class="container">
     <div class="blog-header">
-			<img class="logo row text-center" src="logo.png">
+			<img class="logo row text-center img-responsive" src="logo.png">
 			<br>
       <h1 class="row text-center blog-description">By Cristy Yeung</h1>
 		</div>
