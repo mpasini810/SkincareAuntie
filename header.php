@@ -40,6 +40,7 @@
         <a class="blog-nav-item <?php if ($_GET["post"] == 2) echo "active"?>" href="post.php?post=2"><p>Start Here & Basic Information</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 3) echo "active"?>" href="post.php?post=3"><p>Dos and Don'ts</p></a>
         <a class="blog-nav-item <?php if ($_GET["post"] == 4) echo "active"?>" href="post.php?post=4"><p>My Routine</p></a>
+        <a class="blog-nav-item <?php if ($_GET["post"] == 5) echo "active"?>" href="contact.php"><p>Contact</p></a>
       </nav>
     </div>
   </div>
